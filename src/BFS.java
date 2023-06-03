@@ -31,4 +31,17 @@ public class BFS<V> extends Search<V> {
             }
         }
     }
+    public List<Vertex<V>> getPath(Vertex<V> targetVertex) {
+        List<Vertex<V>> path = new ArrayList<>();
+        Vertex<V> currentVertex = targetVertex;
+
+        while (currentVertex != null) {
+            path.add(currentVertex);
+            currentVertex = parent.get(currentVertex);
+        }
+
+        Collections.reverse(path);
+        return path;
+    }
 }
+
